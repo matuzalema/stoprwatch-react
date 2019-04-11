@@ -1,0 +1,38 @@
+.wrapper {
+	width: 400px;
+	background-color: #8EA6B4;
+	margin: 130px auto;
+	padding: 30px;
+	border-radius: 5px;
+	border-top: 10px solid #113A5D;
+
+	.controls {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+
+		.button {
+			font-size: 14px;
+			margin: 10px;
+			background-color: grey;
+			text-transform: uppercase;
+			text-decoration: none;
+			font-family: arial;
+			border-radius: 5px;
+			background-color: #FF8F56;
+			padding: 10px;
+			width: 100px;
+			color: #fff;
+			cursor: pointer;
+			&:hover{
+				background-color: #ff8f56eb;
+			}
+		}
+	}
+	.stopwatch {
+		text-align: center;
+		font-size: 40px;
+		padding: 20px;
+		color: #fff;
+	}
+}
