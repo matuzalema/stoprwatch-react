@@ -1,1 +1,1 @@
-https://matuzalema.github.io/stopwatch-ES6/
+https://matuzalema.github.io/stoprwatch-react/
