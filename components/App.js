@@ -22,6 +22,11 @@ class App extends React.Component {
 		});
 	};
 
+
+  // print = (e) => {
+  //  this.display.innerText = this.format(this.times);
+  // };
+
   start = (e) => {
     if(!this.state.running){
       this.setState({running: true});
@@ -32,21 +37,33 @@ class App extends React.Component {
   step = (e) => {
     if(!this.state.running) return;
     this.calculate();
+    // this.print();
   };
 
   calculate = (e) => {
-    const time = this.state.times;
-    time.miliseconds +=1;
-    if (time.miliseconds>=100){
-      time.seconds +=1;
-      time.miliseconds = 0;
-    }
-    if(time.seconds >=60){
-      time.minutes +=1;
-      time.seconds = 0;
-    }
-    this.setState({time});
+    let minutes = this.state.times.minutes;
+    let seconds = this.state.times.seconds;
+    let miliseconds = this.state.times.miliseconds;
+
+    miliseconds +=1;
+      if (miliseconds>=100){
+        seconds +=1;
+        miliseconds = 0;
+      }
+      if(seconds >=60){
+        minutes +=1;
+        seconds = 0;
+      }
+      
+    this.setState({
+      times: {
+        minutes: minutes,
+        seconds: seconds,
+        miliseconds: miliseconds
+      }
+    });
   };
+
 
   stop = (e) => {
     this.setState({running: false});
@@ -61,7 +78,7 @@ class App extends React.Component {
       return result;
   };
 
-	format() {
+	format =(times) => {
 		return `${this.pad0(this.state.times.minutes)}:${this.pad0(this.state.times.seconds)}:${this.pad0(Math.floor(this.state.times.miliseconds))}`;
 	};
 
